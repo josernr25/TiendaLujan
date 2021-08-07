@@ -1,10 +1,15 @@
 import './App.css';
-import MenuExampleSizeSmall from './components/NavBar/NavBar2';
+import NavBar from './components/NavBar/NavBar';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 
 function App() {
   return (
     <>
-      <MenuExampleSizeSmall />
+      <NavBar />
+      <br/>
+      <div className="itemList">
+        <ItemListContainer />
+      </div>
     </>
   );
 }

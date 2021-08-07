@@ -1,15 +1,15 @@
 import React, {Component} from 'react'
 import {
-    Button,
     Dropdown,
     Menu,
     Icon,
     Input
 } from 'semantic-ui-react'
-import './NavBar2.css';
+import './NavBar.css';
 import logo from './logo.png';
+import CartWidget from './../CartWidget/CartWidget'
 
-export default class MenuExampleSizeSmall extends Component {
+export default class NavBar extends Component {
     state = {
         activeItem: 'home'
     }
@@ -24,9 +24,9 @@ export default class MenuExampleSizeSmall extends Component {
                 <div className="upper">
                     <p>Atención Telefónica 0810-555-5432 / (0379) 155112405</p>
                     <div className="right">
-                        <a href="#">Centro de Ayuda</a>
-                        <a href="#">Contacto</a>
-                        <a href="#">Sobre Nosotros</a>
+                        <a href="./">Centro de Ayuda</a>
+                        <a href="./">Contacto</a>
+                        <a href="./">Sobre Nosotros</a>
                     </div>
                 </div>
                 <div className="mid">
@@ -87,7 +87,7 @@ export default class MenuExampleSizeSmall extends Component {
                     <Menu.Menu position='right'>
                         <Menu.Item>
                             <Icon name='user' size='large'/>
-                            <Icon name='shopping cart' size='large'/>
+                            <CartWidget />
                         </Menu.Item>
                     </Menu.Menu>
 
