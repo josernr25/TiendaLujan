@@ -1,9 +1,11 @@
 import './App.css';
-import NavBar from './components/NavBar';
+import MenuExampleSizeSmall from './components/NavBar/NavBar2';
 
 function App() {
   return (
-      <NavBar />
+    <>
+      <MenuExampleSizeSmall />
+    </>
   );
 }
 
