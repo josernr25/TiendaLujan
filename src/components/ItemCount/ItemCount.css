@@ -1,0 +1,26 @@
+.ItemCount {
+    display: flex;
+    justify-content: center;
+}
+
+.inputCount>button {
+    align-self:flex-end;
+}
+
+.inputCount{
+    margin: 0;
+    width: 15%;
+    margin-left: 12px;
+    margin-right: 5px;
+}
+
+.inputCount>input{
+    margin: 0;
+}
+
+.ButtonBuy{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+

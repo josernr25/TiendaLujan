@@ -44,7 +44,7 @@ export default class NavBar extends Component {
                         placeholder='Buscar...'/>
                     <div></div>
                 </div>
-                <Menu id="categorias" size='small'>
+                <Menu id="categorias" size='small' stackable>
                     <Dropdown className="subMenu" item text='Celulares y Tecnologia'>
                         <Dropdown.Menu>
                             <Dropdown.Item>Celulares</Dropdown.Item>
