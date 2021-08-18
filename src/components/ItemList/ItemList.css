@@ -1,0 +1,16 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+	  align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .card{
+    margin-left: 20px !important;
+  }
+ .productsTitle{
+    font-variant-caps: all-small-caps;
+    text-align: center;
+    border-bottom: 2px solid #369a9a;
+    color: #369a9a;
+  }

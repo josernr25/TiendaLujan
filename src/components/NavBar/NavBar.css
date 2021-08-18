@@ -16,7 +16,7 @@
     font-size: 17px;
 }
 
-.menu::after{
+.navBar .transition::after{
     content: "";
     position: absolute;
     bottom: 0;
