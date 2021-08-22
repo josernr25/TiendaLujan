@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import Item from './../Item/Item';
 import './ItemList.css'
 
@@ -10,16 +10,7 @@ Luego pasar la respuesta a un estado de React, y luego loopear
 La respuesta y pintar en la UI una propiedad del objeto
 */
 
-const ItemList = () => {
-    const [users, setUsers] = useState([]);
-    console.log("Users", users);
-    // UseEffect
-    useEffect(() => {
-        setTimeout(() => {
-            fetch("https://api.github.com/users").then((response) => response.json()).then((data) => setUsers(data));
-        }, 2000);
-        
-    }, []);
+const ItemList = ({users}) => {
 
     return (
         <>
