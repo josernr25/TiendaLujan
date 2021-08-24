@@ -1,0 +1,26 @@
+.DetailContainer{
+    display: flex;
+    justify-content: space-around;
+    margin: 0 0 23px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.PriceDetails{
+    text-align: center;
+}
+
+.ButtonBuy{
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+}
+
+.Details{
+    max-width: 30%;
+    margin: 0 50px;
+}
+
+.ImageDetail img{
+    border-radius: 10px 0 0 10px;
+}

@@ -1,11 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import { Card } from 'semantic-ui-react'
-import ItemCount from './../ItemCount/ItemCount'
 import ItemList from './../ItemList/ItemList'
 
-const extra = (
-    <ItemCount stock={5} initial={1}/>
-)
 
 const ItemListContainer = () => {
   const [users, setUsers] = useState([]);
@@ -23,11 +18,6 @@ const ItemListContainer = () => {
 
     return (
       <>
-      <Card
-        header='Bienvenidos de Tienda Lujan'
-        description='Que tengas un buen dia'
-        extra={extra}
-      />
       <ItemList users={users}/>
       </>
     );
