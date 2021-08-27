@@ -1,5 +1,5 @@
 import { Button, Tab, Table } from 'semantic-ui-react'
-
+import ItemCount from '../ItemCount/ItemCount';
 
 const panes = [
     {
@@ -42,8 +42,8 @@ const panes = [
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sapien elit, rhoncus ut vehicula eu, lobortis commodo ligula. Donec ac viverra purus, at mollis ipsum. Proin blandit neque lacinia eros pharetra, sit amet interdum lectus fringilla. Donec at velit accumsan, vehicula urna nec, feugiat leo. Donec euismod, enim auctor tempor eleifend, erat elit facilisis nisi, eget scelerisque purus ipsum vitae arcu. Maecenas id pharetra turpis, quis mattis urna. Maecenas pharetra, urna quis cursus mollis, est tellus iaculis ante, sed placerat lacus quam et nunc. Nunc sed mauris pretium, viverra lectus ut, scelerisque magna. Maecenas viverra, justo a semper mollis, lacus dolor vehicula mauris, eu tempor dui quam sed magna. Donec vel turpis nulla. Pellentesque lorem metus, lacinia rutrum sem nec, cursus sollicitudin tellus. Duis eget bibendum lectus.</p>
                         <div className="ButtonBuy">
                             <h2>Precio: $199.00</h2>
-                            <Button color='teal'>Comprar</Button>
                         </div>
+                        <ItemCount stock={5} initial={1}/>
                     </div>
                 </div>
                 <Tab menu={{ secondary: true, pointing: true }} panes={panes} />

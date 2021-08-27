@@ -10,12 +10,13 @@
 .inputCount{
     margin: 0;
     width: 15%;
-    margin-left: 12px;
     margin-right: 5px;
+    transform: translateX(0%) !important;
 }
 
 .inputCount>input{
     margin: 0;
+    text-align: center !important;
 }
 
 .ButtonBuy{

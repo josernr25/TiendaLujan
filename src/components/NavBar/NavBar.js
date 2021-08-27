@@ -8,6 +8,7 @@ import {
 import './NavBar.css';
 import logo from './logo.png';
 import CartWidget from './../CartWidget/CartWidget'
+import { Link } from 'react-router-dom';
 
 export default class NavBar extends Component {
     state = {
@@ -30,10 +31,12 @@ export default class NavBar extends Component {
                     </div>
                 </div>
                 <div className="mid">
-                    <div className="logo">
-                        <img src={logo}
-                            alt="Tienda Lujan"/>
-                    </div>
+                    <Link to="/">
+                        <div className="logo">
+                            <img src={logo}
+                                alt="Tienda Lujan"/>
+                        </div>
+                    </Link>
                     <Input icon={
                             {
                                 name: 'search',
@@ -47,33 +50,33 @@ export default class NavBar extends Component {
                 <Menu id="categorias" size='small' stackable>
                     <Dropdown className="subMenu" item text='Celulares y Tecnologia'>
                         <Dropdown.Menu>
-                            <Dropdown.Item>Celulares</Dropdown.Item>
-                            <Dropdown.Item>Tablets</Dropdown.Item>
-                            <Dropdown.Item>Computación</Dropdown.Item>
-                            <Dropdown.Item>Accesorios</Dropdown.Item>
+                            <Link to="/Category/1"><Dropdown.Item>Celulares</Dropdown.Item></Link>
+                            <Link to="/Category/2"><Dropdown.Item>Tablets</Dropdown.Item></Link>
+                            <Link to="/Category/3"><Dropdown.Item>Computación</Dropdown.Item></Link>
+                            <Link to="/Category/4"> <Dropdown.Item>Accesorios</Dropdown.Item></Link>
                         </Dropdown.Menu>
                     </Dropdown>
                     <Dropdown className="subMenu" item text='TV, Audio y Video'>
                         <Dropdown.Menu>
-                            <Dropdown.Item>TV</Dropdown.Item>
-                            <Dropdown.Item>Audio</Dropdown.Item>
-                            <Dropdown.Item>Monitores</Dropdown.Item>
+                            <Link to="/Category/5"><Dropdown.Item>TV</Dropdown.Item></Link>
+                            <Link to="/Category/6"><Dropdown.Item>Audio</Dropdown.Item></Link>
+                            <Link to="/Category/7"><Dropdown.Item>Monitores</Dropdown.Item></Link>
                         </Dropdown.Menu>
                     </Dropdown>
                     <Dropdown className="subMenu" item text='ElectroHogar'>
                         <Dropdown.Menu>
-                            <Dropdown.Item>Pequeños Electro</Dropdown.Item>
-                            <Dropdown.Item>Heladeras</Dropdown.Item>
-                            <Dropdown.Item>Cocinas y Hornos</Dropdown.Item>
-                            <Dropdown.Item>Lavado</Dropdown.Item>
-                            <Dropdown.Item>Climatización</Dropdown.Item>
+                            <Link to="/Category/8"><Dropdown.Item>Pequeños Electro</Dropdown.Item></Link>
+                            <Link to="/Category/9"><Dropdown.Item>Heladeras</Dropdown.Item></Link>
+                            <Link to="/Category/10"><Dropdown.Item>Cocinas y Hornos</Dropdown.Item></Link>
+                            <Link to="/Category/11"><Dropdown.Item>Lavado</Dropdown.Item></Link>
+                            <Link to="/Category/12"><Dropdown.Item>Climatización</Dropdown.Item></Link>
                         </Dropdown.Menu>
                     </Dropdown>
                     <Dropdown className="subMenu" item text='Cuidado Personal'>
                         <Dropdown.Menu>
-                            <Dropdown.Item>Belleza</Dropdown.Item>
-                            <Dropdown.Item>Salud</Dropdown.Item>
-                            <Dropdown.Item>Deportes y Fitness</Dropdown.Item>
+                            <Link to="/Category/13"><Dropdown.Item>Belleza</Dropdown.Item></Link>
+                            <Link to="/Category/14"><Dropdown.Item>Salud</Dropdown.Item></Link>
+                            <Link to="/Category/15"><Dropdown.Item>Deportes y Fitness</Dropdown.Item></Link>
                         </Dropdown.Menu>
                     </Dropdown>
 

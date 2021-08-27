@@ -10,9 +10,7 @@ const ItemListContainer = () => {
             fetch("https://api.github.com/users")
               .then((response) => response.json())
               .then((data) => {
-                setTimeout(() => {
                   setUsers(data)
-                }, 2000);
               });
     }, []);
 

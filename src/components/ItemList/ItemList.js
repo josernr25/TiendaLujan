@@ -26,6 +26,9 @@ const ItemList = ({users}) => {
                             }
                             image={
                                 user.avatar_url
+                            }
+                            id={
+                                user.login
                             }/>
                     );
                 })
