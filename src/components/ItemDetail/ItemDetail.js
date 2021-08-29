@@ -1,5 +1,7 @@
-import { Button, Tab, Table } from 'semantic-ui-react'
+import { Tab, Table, Button } from 'semantic-ui-react'
 import ItemCount from '../ItemCount/ItemCount';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const panes = [
     {
@@ -30,7 +32,11 @@ const panes = [
 
 
   const ItemDetail = ({ item }) => {
+    const [addToCart, setAddToCart] = useState(0);
 
+    const onAdd = (quantityToAdd) => {
+      setAddToCart(quantityToAdd);
+    }
     return (
             <div style={{margin: "40px"}}>
                 <div className="DetailContainer">
@@ -43,7 +49,7 @@ const panes = [
                         <div className="ButtonBuy">
                             <h2>Precio: $199.00</h2>
                         </div>
-                        <ItemCount stock={5} initial={1}/>
+                        {addToCart === 0 ? <ItemCount stock={5} initial={1} onAdd={onAdd}/> : <Link to="/cart"><div className="ButtonBuy"><Button positive>Finalizar Compra</Button></div></Link>}
                     </div>
                 </div>
                 <Tab menu={{ secondary: true, pointing: true }} panes={panes} />

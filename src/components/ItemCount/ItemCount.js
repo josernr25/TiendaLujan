@@ -3,7 +3,7 @@ import {Button, Input} from 'semantic-ui-react'
 import './ItemCount.css'
 
 
-const ItemCount = ({stock, initial}) => {
+const ItemCount = ({stock, initial, onAdd}) => {
 
     const [count, setCount] = useState(initial);
 
@@ -17,10 +17,6 @@ const ItemCount = ({stock, initial}) => {
         if (count > 1) {
             setCount(count - 1);
         }
-    }
-
-    const onAdd = () => {
-        alert('Agregado al carrito');
     }
 
     return (
@@ -49,7 +45,7 @@ const ItemCount = ({stock, initial}) => {
                 <Button basic color='blue' content='Agregar al Carrito'
                     onClick={
                         () => {
-                            onAdd()
+                            onAdd(count)
                         }
                     }/>
             </div>
