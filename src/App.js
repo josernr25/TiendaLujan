@@ -9,18 +9,22 @@ import NavBar from './components/NavBar/NavBar';
 import Home from './views/Home/Home'
 import Category from './views/Category/Category'
 import Item from './views/Item/Item'
+// Import Provider
+import { CartProvider } from './CartContext'
 
 function App() {
   return (
-    <Router>
-      <NavBar />
-      <br/>
-      <Switch>
-        <Route path="/category/:id" component={Category} />
-        <Route path="/item/:id" component={Item} />
-        <Route exact path="/" component={Home} />
-      </Switch>
-    </Router>
+    <CartProvider>
+      <Router>
+        <NavBar />
+        <br/>
+        <Switch>
+          <Route path="/category/:id" component={Category} />
+          <Route path="/item/:id" component={Item} />
+          <Route exact path="/" component={Home} />
+        </Switch>
+      </Router>
+    </CartProvider>
   );
 }
 
