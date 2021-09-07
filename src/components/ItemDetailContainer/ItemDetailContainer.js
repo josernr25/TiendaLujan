@@ -6,16 +6,16 @@ import axios from 'axios';
 
 
 const ItemDetailContainer = ({ id }) => {
-    const [item, setItem] = useState({});
+    const [itemDetail, setItemDetail] = useState({});
 
     // UseEffect
     useEffect(() => {
       axios(`https://api.github.com/users/${id}`).then((res) =>
-        setItem(res.data)
+        setItemDetail(res.data)
       );
     }, []);
 
-    return <ItemDetail  item={item}/>
+    return <ItemDetail  item={itemDetail}/>
 }
 
 export default ItemDetailContainer

@@ -34,15 +34,12 @@ const panes = [
 
 
   const ItemDetail = ({ item }) => {
-    const [items, setItems, isInCart] = useContext(CartContext);
+    const [cart, setCart, isInCart, addToCart] = useContext(CartContext);
 
-    console.log("Console",items);
+    console.log("Console",cart);
 
     const onAdd = (quantityToAdd) => {
-      if(isInCart(item.id))
-      {
-        setItems([{'item': item, 'quantity': quantityToAdd}]);
-      }
+      addToCart(item, quantityToAdd)
     }
 
 

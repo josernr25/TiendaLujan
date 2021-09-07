@@ -1,0 +1,17 @@
+.items-cart-count{
+    position: absolute;
+    top: -7px;
+    right: 4px;
+    width: 24px;
+    height: 24px;
+    background-color: #10dcca;
+    text-align: center;
+    border-radius: 41px;
+    line-height: 23px;
+}
+
+.items-cart-count .it{
+    color: #112957;
+    text-align: center!important;
+    float: none;
+}

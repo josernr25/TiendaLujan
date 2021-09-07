@@ -9,6 +9,7 @@ import NavBar from './components/NavBar/NavBar';
 import Home from './views/Home/Home'
 import Category from './views/Category/Category'
 import Item from './views/Item/Item'
+import Cart from './views/Cart/Cart'
 // Import Provider
 import { CartProvider } from './CartContext'
 
@@ -21,6 +22,7 @@ function App() {
         <Switch>
           <Route path="/category/:id" component={Category} />
           <Route path="/item/:id" component={Item} />
+          <Route exact path="/cart" component={Cart} />
           <Route exact path="/" component={Home} />
         </Switch>
       </Router>
