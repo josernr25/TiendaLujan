@@ -4,6 +4,7 @@ export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
 	const [cart, setCart] = useState([]);
+  const [total, setTotal] = useState(0);
     
   const isInCart = (id) => {
     let result = true
@@ -18,6 +19,7 @@ export const CartProvider = ({ children }) => {
   }
 
   console.log("CART", cart)
+  console.log("TOTAL", total)
 
   const addToCart = (item, quantity) => {
     if(!isInCart(item.id)){
@@ -29,23 +31,27 @@ export const CartProvider = ({ children }) => {
               return cartItem;
             }
           })
+        setTotal(total + (item.followers * quantity))
         setCart(newCart)
         }else{
+          setTotal(total + (item.followers * quantity))
           setCart([...cart, {item: item, quantity: quantity}])
         }
     }else{
+      setTotal(total + (item.followers * quantity))
       setCart([...cart, {item: item, quantity: quantity}])
     }
   }
 
-  const removeItem = (itemId) => {
-    setCart(cart.filter((e) => e.item.id !== itemId))
+  const removeItem = (item) => {
+    setTotal(total - (item.quantity * item.item.followers))
+    setCart(cart.filter((e) => e.item.id !== item.item.id))
   }
 
   const clearCart = () => setCart([])
 
 	return (
-		<CartContext.Provider value={[cart, setCart, isInCart, addToCart, removeItem, clearCart]}>
+		<CartContext.Provider value={[cart, setCart, isInCart, addToCart, removeItem, total, clearCart]}>
 			{children}
 		</CartContext.Provider>
 	);

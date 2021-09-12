@@ -20,7 +20,7 @@ const CartItem = ({ item, removeItem }) => {
               <p className="sku">SKU: 232321939</p>
             </div>
           </div>
-          <div className="price">26.00</div>
+          <div className="price">{new Intl.NumberFormat("es-EN").format(item.item.followers)}</div>
           <div className="quantity">
             <input
               type="number"
@@ -29,9 +29,9 @@ const CartItem = ({ item, removeItem }) => {
               className="quantity-field"
             />
           </div>
-          <div className="subtotal">104.00</div>
+          <div className="subtotal">{new Intl.NumberFormat("es-EN").format(item.item.followers * item.quantity)}</div>
           <div className="remove">
-            <Icon onClick={() => removeItem(item.item.id)} name="trash" size="large" />
+            <Icon onClick={() => removeItem(item)} name="trash" size="large" />
           </div>
         </div>
       </>

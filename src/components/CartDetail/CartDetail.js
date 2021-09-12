@@ -1,12 +1,8 @@
 import CartItemList from "../../components/CartItemList/CartItemList";
-import React from 'react';
+import React, { useState } from 'react';
 import "./CartDetail.css";
 
-const CartDetail = ({ cart, removeItem }) => {
-    
-
-    console.log("CARTITEMS",cart);
-
+const CartDetail = ({ cart, removeItem, total }) => {
   return (
     <div className="cart-container">
       <div className="main">
@@ -29,7 +25,7 @@ const CartDetail = ({ cart, removeItem }) => {
             <div className="summary-subtotal">
               <div className="subtotal-title">Subtotal</div>
               <div className="subtotal-value final-value" id="basket-subtotal">
-                130.00
+                {new Intl.NumberFormat("es-EN").format(total)}
               </div>
               <div className="summary-promo hide">
                 <div className="promo-title">Promocion</div>
@@ -41,7 +37,7 @@ const CartDetail = ({ cart, removeItem }) => {
                 name="delivery-collection"
                 className="summary-delivery-selection"
               >
-                <option value={0} selected="selected">
+                <option value={0} defaultValue>
                   Metodos de envio
                 </option>
                 <option value="collection">Retiro en sucursal</option>
@@ -52,7 +48,7 @@ const CartDetail = ({ cart, removeItem }) => {
             <div className="summary-total">
               <div className="total-title">Total</div>
               <div className="total-value final-value" id="basket-total">
-                130.00
+                {new Intl.NumberFormat("es-EN").format(total)}
               </div>
             </div>
             <div className="summary-checkout">

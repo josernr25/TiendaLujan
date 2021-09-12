@@ -9,8 +9,8 @@ const CartWidget = () => {
     return (
         <Link to="/cart">
           <Icon name="shopping cart" size="large" />
-          <div class="items-cart-count" style={cart === null || cart.length === 0 ? {display: 'none'} : {}}>
-	    	    <span class="it"><span>{cart.length}</span></span>
+          <div className="items-cart-count" style={cart === null || cart.length === 0 ? {display: 'none'} : {}}>
+	    	    <span className="it"><span>{cart.length}</span></span>
 	        </div>
         </Link>
     )
