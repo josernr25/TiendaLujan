@@ -4,6 +4,12 @@
     margin: 0 0 23px;
     justify-content: center;
     flex-wrap: wrap;
+    background-color: white;
+    border-width: 1px 0 1px 1px;
+    border-style: solid;
+    border-color: #e3e3e3;
+    border-radius: 10px;
+    width: 80%;
 }
 
 .PriceDetails{
@@ -18,10 +24,51 @@
 }
 
 .Details{
-    max-width: 30%;
+    max-width: 38%;
     margin: 0 50px;
 }
 
 .ImageDetail img{
     border-radius: 10px 0 0 10px;
+}
+
+.DetailContainer span{
+    color: darkgrey;
+    font-style: italic;
+}
+
+.DetailContainer .category-detail{
+    position: relative;
+    top: 20px;
+}
+
+.DetailContainer p{
+    margin-top: 1em;
+}
+
+.line-detail{
+    height: 1px;
+    background-color: lightgrey;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.detail-center{
+    display: flex;
+    justify-content: center;
+}
+
+.detail-center > div{
+    width: 80%;
+}
+
+.detail-center .menu .active{
+    border-radius: 8px 8px 0 0 !important;
+    background-color: #3fbeb3 !important;
+    color: #fff !important;
+    border-color: #3fbeb3 !important;
+}
+
+.detail-center .ui.secondary.pointing.menu{
+    border-bottom: 2px solid #3fbeb3 !important;
 }

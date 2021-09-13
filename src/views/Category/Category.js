@@ -1,9 +1,9 @@
 import React from 'react'
 import ItemListContainer from '../../components/ItemListContainer/ItemListContainer';
 
-const Category = () => (
+const Category = ({match}) => (
     <div className="itemList">
-        <ItemListContainer />
+        <ItemListContainer categoryId={match.params.id}/>
     </div>
 )
 

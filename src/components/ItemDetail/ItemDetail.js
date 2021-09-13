@@ -1,4 +1,4 @@
-import { Tab, Table, Button } from 'semantic-ui-react'
+import { Tab, Table, Button, Icon, Step } from 'semantic-ui-react'
 import ItemCount from '../ItemCount/ItemCount';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
@@ -45,20 +45,44 @@ const panes = [
 
     return (
             <div style={{margin: "40px"}}>
+              <div className="detail-center">
                 <div className="DetailContainer">
                     <div className="ImageDetail">
-                        <img src={item.avatar_url} alt="Imagen del producto"></img>
+                        <img src={item.image} alt="Imagen del producto"></img>
                     </div>
                     <div className="Details">
-                        <h2>{item.name} - {item.location}</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sapien elit, rhoncus ut vehicula eu, lobortis commodo ligula. Donec ac viverra purus, at mollis ipsum. Proin blandit neque lacinia eros pharetra, sit amet interdum lectus fringilla. Donec at velit accumsan, vehicula urna nec, feugiat leo. Donec euismod, enim auctor tempor eleifend, erat elit facilisis nisi, eget scelerisque purus ipsum vitae arcu. Maecenas id pharetra turpis, quis mattis urna. Maecenas pharetra, urna quis cursus mollis, est tellus iaculis ante, sed placerat lacus quam et nunc. Nunc sed mauris pretium, viverra lectus ut, scelerisque magna. Maecenas viverra, justo a semper mollis, lacus dolor vehicula mauris, eu tempor dui quam sed magna. Donec vel turpis nulla. Pellentesque lorem metus, lacinia rutrum sem nec, cursus sollicitudin tellus. Duis eget bibendum lectus.</p>
+                        <span className="category-detail">{item.categoryName}</span>
+                        <h2>{item.name}</h2>
+                        <span className="sku-detail">{item.sku}</span>
+                        <p>{item.largeDescription}</p>
+                        <div className="line-detail"></div>
                         <div className="ButtonBuy">
-                            <h2>Precio: ${new Intl.NumberFormat("es-EN").format(item.followers)}</h2>
+                            <h2>${new Intl.NumberFormat("es-EN").format(item.price)}</h2>
+                            {isInCart(item.id) ? <ItemCount stock={5} initial={1} onAdd={onAdd}/> : <Link to="/cart"><Button positive>Finalizar Compra</Button></Link>}
                         </div>
-                        {isInCart(item.id) ? <ItemCount stock={5} initial={1} onAdd={onAdd}/> : <Link to="/cart"><div className="ButtonBuy"><Button positive>Finalizar Compra</Button></div></Link>}
+                        
+                        <Step.Group>
+                          <Step>
+                            <Icon name='truck' />
+                            <Step.Content>
+                              <Step.Title>Envios</Step.Title>
+                              <Step.Description>A todo el pais, las 24 Hs.</Step.Description>
+                            </Step.Content>
+                          </Step>
+                          <Step>
+                            <Icon name='credit card' />
+                            <Step.Content>
+                              <Step.Title>Medios de pagos</Step.Title>
+                              <Step.Description>100% Seguros y confiables</Step.Description>
+                            </Step.Content>
+                          </Step>
+                        </Step.Group> 
                     </div>
                 </div>
-                <Tab menu={{ secondary: true, pointing: true }} panes={panes} />
+                </div>
+                <div className="detail-center">
+                  <Tab style={{with: '80%'}} menu={{ secondary: true, pointing: true }} panes={panes} />
+                </div>
             </div>
     );
 }

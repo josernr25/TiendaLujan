@@ -8,7 +8,7 @@ const CartItem = ({ item, removeItem }) => {
           <div className="item">
             <div className="product-image">
               <img
-                src={item.item.avatar_url}
+                src={item.item.image}
                 alt={item.item.name}
                 className="product-frame"
               />
@@ -17,10 +17,10 @@ const CartItem = ({ item, removeItem }) => {
               <h3>
                 <strong>{item.item.name}</strong>
               </h3>
-              <p className="sku">SKU: 232321939</p>
+              <p className="sku">SKU: {item.item.sku}</p>
             </div>
           </div>
-          <div className="price">{new Intl.NumberFormat("es-EN").format(item.item.followers)}</div>
+          <div className="price">{new Intl.NumberFormat("es-EN").format(item.item.price)}</div>
           <div className="quantity">
             <input
               type="number"
@@ -29,7 +29,7 @@ const CartItem = ({ item, removeItem }) => {
               className="quantity-field"
             />
           </div>
-          <div className="subtotal">{new Intl.NumberFormat("es-EN").format(item.item.followers * item.quantity)}</div>
+          <div className="subtotal">{new Intl.NumberFormat("es-EN").format(item.item.price * item.quantity)}</div>
           <div className="remove">
             <Icon onClick={() => removeItem(item)} name="trash" size="large" />
           </div>

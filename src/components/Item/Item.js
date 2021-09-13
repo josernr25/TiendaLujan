@@ -1,24 +1,25 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Card, Image } from 'semantic-ui-react'
-import ItemCount from './../ItemCount/ItemCount'
 
-const Item = ({image, name, id}) => (
-  <Link to={`/Item/${id}`}>
+const Item = ({item}) => (
+  <Link to={`/Item/${item.id}`}>
     <Card>
-      <Image src={image} wrapped ui={false} />
+      <Image src={item.image} wrapped ui={false} />
       <Card.Content>
-        <Card.Header>{name}</Card.Header>
-        <Card.Meta>
-          <span className='date'>Joined in 2015</span>
-        </Card.Meta>
+        <Card.Header>{item.name}</Card.Header>
         <Card.Description>
-          Matthew is a musician living in Nashville.
+          {item.shortDescription}
         </Card.Description>
       </Card.Content>
-      <Card.Content extra>
-        <ItemCount stock={5} initial={1} />
+      <Card.Content>
+        <Card.Meta>
+          <div className="card-price">
+            <h2 className='date'>${new Intl.NumberFormat("es-EN").format(item.price)}</h2>
+          </div>
+        </Card.Meta>
       </Card.Content>
+      <div className="bottom-line"></div>
     </Card>
   </Link>
 )

@@ -31,20 +31,20 @@ export const CartProvider = ({ children }) => {
               return cartItem;
             }
           })
-        setTotal(total + (item.followers * quantity))
+        setTotal(total + (item.price * quantity))
         setCart(newCart)
         }else{
-          setTotal(total + (item.followers * quantity))
+          setTotal(total + (item.price * quantity))
           setCart([...cart, {item: item, quantity: quantity}])
         }
     }else{
-      setTotal(total + (item.followers * quantity))
+      setTotal(total + (item.price * quantity))
       setCart([...cart, {item: item, quantity: quantity}])
     }
   }
 
   const removeItem = (item) => {
-    setTotal(total - (item.quantity * item.item.followers))
+    setTotal(total - (item.quantity * item.item.price))
     setCart(cart.filter((e) => e.item.id !== item.item.id))
   }
 

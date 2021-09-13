@@ -12,19 +12,20 @@ import Item from './views/Item/Item'
 import Cart from './views/Cart/Cart'
 // Import Provider
 import { CartProvider } from './CartContext'
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
     <CartProvider>
       <Router>
         <NavBar />
-        <br/>
         <Switch>
           <Route path="/category/:id" component={Category} />
           <Route path="/item/:id" component={Item} />
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/" component={Home} />
         </Switch>
+        <Footer/>
       </Router>
     </CartProvider>
   );
