@@ -1,0 +1,32 @@
+.addUserData{
+    display: block;
+    float: left;
+    padding: 10px;
+    border: 1px #C2C2C2 !important;
+    box-sizing: border-box;
+    box-shadow: 3px 3px 15px rgb(0 0 0 / 10%);
+    border-style: dashed !important;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.addUserData div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: normal;
+    margin: 0;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 19px;
+    text-align: center;
+    color: #000000;
+    max-width: 89px;
+    flex-direction: column;
+    margin-top: 0 !important;
+}
+
+.summary-userdata{
+    display: flex;
+    justify-content: center;
+}
