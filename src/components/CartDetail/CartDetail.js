@@ -6,17 +6,17 @@ import { db } from '../../firebase';
 import { useHistory  } from 'react-router-dom';
 import "./CartDetail.css";
 
-const CartDetail = ({ cart, removeItem, total }) => {
+const CartDetail = ({ cart, removeItem, total, setCart }) => {
   const history = useHistory();
   const [shippingCost, setShippingCost] = useState(0);
+  const [shippingName, setShippingName] = useState(0);
   const [shippingCosts, setShippingCosts] = useState([]);
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [postalCode, setPostalCode] = useState('');
-  const [showModal, setShowModal] = useState(false)
 
-  console.log("Form", name + " - " + phone + " - " + email + " - " + postalCode)
+  console.log(cart)
 
   const getShippingCosts = async () => {
       if(postalCode){
@@ -34,6 +34,7 @@ const CartDetail = ({ cart, removeItem, total }) => {
       let cp = parseInt(postalCode);
       let price = shippingCosts.filter(sc => sc.from < cp && sc.to > cp && sc.company === e.target.value)
       e.target.value === "pickup" || price.length === 0 ? setShippingCost(0) : setShippingCost(price[0].price)
+      e.target.value === "pickup" || price.length === 0 ? setShippingName("Retiro") : setShippingName(e.target.value)
     }
   }
 
@@ -45,27 +46,41 @@ const CartDetail = ({ cart, removeItem, total }) => {
   }
 
   const generateSale = async (e) => {
-    const dateNow = Date.now();
+    let dateNow = new Date;
+    dateNow = `${dateNow.getDate()}/${dateNow.getMonth() + 1}/${dateNow.getFullYear()} ${dateNow.getHours()}:${("0" + (dateNow.getMinutes() + 1)).slice(-2)}`;
 
+    console.log(dateNow)
+
+    const itemsBuy = [];
+    cart.forEach(i => {
+      itemsBuy.push({id: i.item.id, title: i.item.name, price: i.item.price, quantity: i.quantity});
+    });
+    
+    console.log("item buy", itemsBuy)
+    const saleId = Math.floor(Math.random() * 9999999).toString();
     const buyer = {
+      saleId: saleId,
 			name: name,
 			phone: phone,
 			email: email,
-			items: [{ id: '454545', title: 'macbook', price: 152 }],
+			items: itemsBuy,
 			date: dateNow,
+      shippingName: shippingName,
+      shippingCost: shippingCost,
+      subTotal: total,
 			total: total + shippingCost,
 		};
 
-    const salesRef = doc(collection(db, "sales"));
+    
+
+    const salesRef = doc(collection(db, "sales"), saleId);
 
     e.preventDefault();
     await setDoc(salesRef, buyer);
 
-		let q = query(collection(db, "sales"), where("date", "==", dateNow));
-    await getDocs(q).then((nn) => {
-       history.push("/sale/" + nn.docs[0].id);
-    })
-    
+    setCart([]);
+
+    history.push("/sale/" + saleId);
   }
 
   return (
@@ -97,8 +112,8 @@ const CartDetail = ({ cart, removeItem, total }) => {
                 onChange={handleChange}
               >
                 <option value="pickup" defaultValue>Retiro en sucursal</option>
-                <option value="andreani">Envio a domicilio (Andreani)</option>
-                <option value="oca">Envio a domicilio (OCA)</option>
+                <option value="Andreani">Envio a domicilio (Andreani)</option>
+                <option value="Oca">Envio a domicilio (OCA)</option>
               </select>
             </div>
             <div className="summary-subtotal">

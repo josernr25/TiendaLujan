@@ -1,7 +1,7 @@
 import React from "react";
 import { Icon } from 'semantic-ui-react'
 
-const CartItem = ({ item, removeItem }) => {
+const CartItem = ({ item, removeItem, sale }) => {
     return (
         <>
         <div className="basket-product">
@@ -22,17 +22,17 @@ const CartItem = ({ item, removeItem }) => {
           </div>
           <div className="price">{new Intl.NumberFormat("es-EN").format(item.item.price)}</div>
           <div className="quantity">
-            <input
+            {sale ? <p>x{item.quantity}</p> : <input
               type="number"
               defaultValue={item.quantity}
               min={1}
               className="quantity-field"
-            />
+            />}
           </div>
           <div className="subtotal">{new Intl.NumberFormat("es-EN").format(item.item.price * item.quantity)}</div>
-          <div className="remove">
+          {sale ? null : <div className="remove">
             <Icon onClick={() => removeItem(item)} name="trash" size="large" />
-          </div>
+          </div>}
         </div>
       </>
     )

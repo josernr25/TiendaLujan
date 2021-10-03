@@ -1,11 +1,37 @@
-.succeded-sale{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-top: 1rem;;
+
+.succeded-sale .sale-title {
+    text-align: center;
 }
 
-.succeded-sale .message{
-    text-align: center;
-    width: 50%;
+.succeded-sale .sale-title h1{
+    font-size: 2rem;
+}
+
+.succeded-sale .sale-title i{
+    margin-bottom: 1rem;
+    color: #27AE60;
+}
+
+.succeded-sale .container-total{
+    position: relative;
+    text-align: end;
+    display: inline-block;
+    float: right;
+    margin-top: 1rem;
+}
+
+.succeded-sale .total-list{
+    width: 100%;
+    text-align: initial;
+}
+
+.succeded-sale .total-list p{
+    display: inline-block;
+    float: right;
+    margin-left: 5rem;
+}
+
+.succeded-sale .return{
+    display: flex;
+    justify-content: center;
 }

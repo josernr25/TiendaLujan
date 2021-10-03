@@ -6,7 +6,7 @@ const Cart = () => {
     const [cart, setCart, isInCart, addToCart, removeItem, total] = useContext(CartContext);
   return(
     <>
-     {cart.length > 0 ? <CartDetail cart={cart} removeItem={removeItem} total={total}/> : <h1 style={{textAlign : 'center'}}>No hay productos en su carrito!</h1>}
+     {cart.length > 0 ? <CartDetail cart={cart} removeItem={removeItem} total={total} setCart={setCart}/> : <h1 style={{textAlign : 'center'}}>No hay productos en su carrito!</h1>}
     </>
   );
 };

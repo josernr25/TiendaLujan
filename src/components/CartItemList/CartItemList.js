@@ -1,10 +1,10 @@
 import CartItem from '../CartItem/CartItem'
 
-const CartItemList = ({items, removeItem}) => {
+const CartItemList = ({items, removeItem, sale}) => {
     return (
     <>
         {items.map((item, index) => {
-            return <CartItem key={index} item={item} removeItem={removeItem}/>
+            return <CartItem key={index} item={item} removeItem={removeItem} sale={sale}/>
         })}
     </>
     )
