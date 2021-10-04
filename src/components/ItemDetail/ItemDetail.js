@@ -80,9 +80,7 @@ const panes = [
                     </div>
                 </div>
                 </div>
-                <div className="detail-center">
-                  <Tab style={{with: '80%'}} menu={{ secondary: true, pointing: true }} panes={panes} />
-                </div>
+                
             </div>
     );
 }

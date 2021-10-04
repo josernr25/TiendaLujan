@@ -12,6 +12,7 @@ import Category from './views/Category/Category'
 import Item from './views/Item/Item'
 import Cart from './views/Cart/Cart'
 import Sale from "./views/Sale/Sale";
+import Search from './views/Search/Search'
 // Import Provider
 import { CartProvider } from './CartContext'
 
@@ -24,6 +25,7 @@ function App() {
         <NavBar />
         <Switch>
           <Route path="/sale/:id" component={Sale} />
+          <Route path="/search/:id" component={Search} />
           <Route path="/category/:id" component={Category} />
           <Route path="/item/:id" component={Item} />
           <Route exact path="/cart" component={Cart} />

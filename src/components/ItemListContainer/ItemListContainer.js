@@ -4,24 +4,40 @@ import { collection, getDocs, query, where } from 'firebase/firestore/lite';
 import { db } from '../../firebase';
 
 
-const ItemListContainer = ({categoryId}) => {
+const ItemListContainer = ({categoryId, searchName, oferta, destacado}) => {
   const [items, setItems] = useState([]);
     console.log("ITEMS", items);
 
     async function getProducts(db) {
       let q = query(collection(db, "products"));
-      if(categoryId){
-        q = query(collection(db, "products"), where("category", "==", parseInt(categoryId)));
-      }
       const productsSnapshot = await getDocs(q);
-      const finalProducts = productsSnapshot.docs.map(doc => doc.data());
+      const products = productsSnapshot.docs.map(doc => doc.data());
+
+      let finalProducts = products
+
+      if(searchName)
+      {
+        finalProducts = products.filter(x => x.name.includes(searchName.toUpperCase()))
+      }
+      if(categoryId)
+      {
+        finalProducts = products.filter(x => x.category === parseInt(categoryId))
+      }
+      if(oferta)
+      {
+        finalProducts = products.filter(x => x.oferta === true)
+      }
+      if(destacado)
+      {
+        finalProducts = products.filter(x => x.destacado === true)
+      }
 
       setItems(finalProducts);
     }
 
     useEffect(() => {
       getProducts(db)
-    },[])
+    },[searchName, categoryId])
 
     return (
       <>

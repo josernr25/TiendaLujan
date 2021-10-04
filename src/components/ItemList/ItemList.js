@@ -14,7 +14,6 @@ const ItemList = ({items}) => {
 
     return (
         <>
-            <h1 className="productsTitle">OFERTAS!</h1>
             <div className="wrapper" > {
                 items.map((item) => {
                     return (

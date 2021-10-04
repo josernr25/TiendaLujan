@@ -72,3 +72,7 @@
 .detail-center .ui.secondary.pointing.menu{
     border-bottom: 2px solid #3fbeb3 !important;
 }
+
+.Details .steps{
+    margin-bottom: 3rem !important;
+}
